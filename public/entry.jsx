@@ -1,18 +1,17 @@
-import Hello from './hello.jsx';
+import Mainbody from './edit.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import {Router, Route, hashHistory} from 'react-router';
+require('jquery');
+require("bootstrap-webpack");
+require('../styles/edit.css');
 
-ReactDOM.render(
-  <Hello />,
-  document.getElementById("content")
-);
+ReactDOM.render((
+  <Router history={hashHistory}>
+    <Route path='/' component={Mainbody}/>
+  </Router>
+), document.getElementById('mainbody'));
 
-// use jquery
-console.log($('#content').text());
-
-// Notice!!!
-// Following is required to make reloading happen
 if (module.hot) {
   module.hot.accept();
 }
